@@ -1,0 +1,72 @@
+pread
+pwrite
+
+#include <unistd.h>
+
+ssize_t pread(int fd, void *buf, size_t count, off_t offset);
+
+ssize_t pwrite(int fd, const void *buf, size_t count, off_t offset);
+
+
+pthread_self 函数获取自己的线程ID
+
+
+%x 十六进制 输出
+
+如果进程中任一线程调用了 exit,_Exit 或者 _exit，那么整个进程就会终止
+
+
+pthread_cancel函数来取消同一进程中的其他线程
+
+int pthread_cancel(pthread_t tid)
+
+
+atexit函数 安排进程退出时调用函数
+
+
+线程清理处理函数
+
+#include<pthread.h>
+
+void pthread_cleanup_push(void (*rtn)(void *), void *arg);
+void pthread_cheanup_pop(int execute)
+
+
+
+pthread_cleanup_push
+pthread_cleanup_pop
+
+
+
+       #include <pthread.h>
+
+       void pthread_testcancel(void);
+
+       Compile and link with -pthread.
+
+DESCRIPTION
+       Calling  pthread_testcancel()  creates  a  cancellation point within the calling thread, so that a thread that is otherwise executing code
+       that contains no cancellation points will respond to a cancellation request.
+
+       If cancelability is disabled (using pthread_setcancelstate(3)), or no cancellation request is pending, then a call to pthread_testcancel()
+       has no effect.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
